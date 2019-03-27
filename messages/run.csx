@@ -1,4 +1,6 @@
 #r "Newtonsoft.Json"
+#r "Microsoft.SharePoint.Client.dll"  
+#r "Microsoft.SharePoint.Client.Runtime.dll"  
 #load "EchoDialog.csx"
 
 using System;
