@@ -46,7 +46,8 @@ public class EchoDialog : IDialog<object>
          {
          this.count++;
              // SHAREPOINT
-                 log.Info($"el sharepoint chinga todo!!!!!");
+         await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+  
             ClientContext contextSP = new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
 
             // Assume that the web has a list named "Announcements". 
@@ -67,7 +68,7 @@ public class EchoDialog : IDialog<object>
          //-----------------------
          
          
-         await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+         
          }
          else if (this.count > 2)
          {
