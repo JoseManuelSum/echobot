@@ -46,10 +46,10 @@ public class EchoDialog : IDialog<object>
          {
          this.count++;
              // SHAREPOINT
-            ClientContext context = new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
+            ClientContext contextSP = new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
 
             // Assume that the web has a list named "Announcements". 
-            List announcementsList = context.Web.Lists.GetByTitle("Prueba Clavos"); 
+            List announcementsList = contextSP.Web.Lists.GetByTitle("Prueba Clavos"); 
             // We are just creating a regular list item, so we don't need to 
             // set any properties. If we wanted to create a new folder, for 
             // example, we would have to set properties such as 
@@ -60,7 +60,7 @@ public class EchoDialog : IDialog<object>
             newItem["El clavo de los clavos"] = message.Text; 
             newItem.Update(); 
 
-            context.ExecuteQuery();    
+            contextSP.ExecuteQuery();    
          
          
          //-----------------------
