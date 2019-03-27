@@ -6,6 +6,8 @@ using Microsoft.SharePoint.Client;
 using Microsoft.Online.SharePoint.TenantAdministration;  
 using Microsoft.Online.SharePoint.TenantManagement;
 
+using System.Security.Authentication;
+
 // For more information about this template visit http://aka.ms/azurebots-csharp-basic
 [Serializable]
 public class EchoDialog : IDialog<object>
