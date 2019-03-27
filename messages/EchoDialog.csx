@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Microsoft.SharePoint.Client;
 
 // For more information about this template visit http://aka.ms/azurebots-csharp-basic
 [Serializable]
@@ -44,6 +45,26 @@ public class EchoDialog : IDialog<object>
          if (this.count==2)
          {
          this.count++;
+         // SHAREPOINT
+         ClientContext context = new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
+
+        SP.List list = context.Web.Lists.GetByTitle("Prueba Clavos"); 
+            // We are just creating a regular list item, so we don't need to 
+            // set any properties. If we wanted to create a new folder, for 
+            // example, we would have to set properties such as 
+            // UnderlyingObjectType to FileSystemObjectType.Folder. 
+            ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
+            ListItem newItem = announcementsList.AddItem(itemCreateInfo); 
+            newItem["Title"] = "My New Item"; 
+            newItem["El clavo de los clavos"] = message.text; 
+            newItem.Update(); 
+
+            context.ExecuteQuery();    
+         
+         
+         //-----------------------
+         
+         
          await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          }
          else if (this.count > 2)
