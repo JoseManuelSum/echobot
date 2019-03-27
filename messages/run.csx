@@ -57,11 +57,11 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
                         foreach (var newMember in newMembers)
                         {
                             reply.Text = "Bienvenido, por favor ingrese su  solicitud/indicente.";
-                            //if (!string.IsNullOrEmpty(newMember.Name))
-                            //{
-                            //    reply.Text += $" {newMember.Name}";
-                            //}
-                            //reply.Text += "!";
+                            if (!string.IsNullOrEmpty(newMember.Name))
+                            {
+                                reply.Text += $" {newMember.Name}";
+                            }
+                            reply.Text += "!";
                             await client.Conversations.ReplyToActivityAsync(reply);
                         }
                     }
