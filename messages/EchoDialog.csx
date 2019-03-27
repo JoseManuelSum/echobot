@@ -39,7 +39,7 @@ public class EchoDialog : IDialog<object>
             PromptDialog.Confirm(
                 context,
                 AfterResetAsync,
-                "Are you sure you want to reset the count?",
+                "esta seguro de reiniciar?",
                 "Didn't get that!",
                 promptStyle: PromptStyle.Auto);
         }
@@ -75,7 +75,7 @@ public class EchoDialog : IDialog<object>
           //      clientContext.ExecuteQuery();
 
                 //-------------------------------------------
-          //   this.count++;
+             this.count++;
              await context.PostAsync($"Hemos tomado su requerimiento, pronto nos comunicaremos con usted.");
             }
             context.Wait(MessageReceivedAsync);
