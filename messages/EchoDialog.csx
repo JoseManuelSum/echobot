@@ -54,16 +54,10 @@ public class EchoDialog : IDialog<object>
          this.count++;
              // SHAREPOINT
          
-         AuthenticationManager authManager = new AuthenticationManager();
-         ClientContext ctx = authManager
-         .GetSharePointOnlineAuthenticatedContextTenant("https://alcsa.sharepoint.com/sites/soportealcsa",
-         "jsum@alcsa.com.gt", "alcsa1234");
-         Web web = ctx.Web;
-         ctx.Load(web);
-         ctx.ExecuteQueryRetry();
+     
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
-            /* Assume that the web has a list named "Announcements". 
+            ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
             List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
             // We are just creating a regular list item, so we don't need to 
             // set any properties. If we wanted to create a new folder, for 
@@ -76,7 +70,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
             newItem.Update(); 
 
             ctx.ExecuteQuery();    
-         */
+        
          
          //-----------------------
          
