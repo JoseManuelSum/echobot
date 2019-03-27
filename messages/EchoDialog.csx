@@ -57,7 +57,7 @@ public class EchoDialog : IDialog<object>
             ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
             ListItem newItem = announcementsList.AddItem(itemCreateInfo); 
             newItem["Title"] = "My New Item"; 
-            newItem["El clavo de los clavos"] = message.text; 
+            newItem["El clavo de los clavos"] = message.Text; 
             newItem.Update(); 
 
             context.ExecuteQuery();    
