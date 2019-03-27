@@ -2,10 +2,6 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
-//using Microsoft.SharePoint.Client;
-//using Microsoft.Online.SharePoint.TenantAdministration;  
-//using Microsoft.Online.SharePoint.TenantManagement;
-using System.Security;
 
 // For more information about this template visit http://aka.ms/azurebots-csharp-basic
 [Serializable]
@@ -39,23 +35,13 @@ public class EchoDialog : IDialog<object>
             PromptDialog.Confirm(
                 context,
                 AfterResetAsync,
-                "esta seguro de reiniciar?",
+                "Are you sure you want to reset the count?",
                 "Didn't get that!",
                 promptStyle: PromptStyle.Auto);
         }
         else
         {
-            if (this.count > 1)
-            {
-                await context.PostAsync($"Si desea ingresar otro incidente, escribir RESET");
-            }
-            else
-            {
-         
-             
-             await context.PostAsync($"Hemos tomado su requerimiento, pronto nos comunicaremos con usted.");
-            
-            }
+            await context.PostAsync($"{this.count++}: You said {message.Text}");
             context.Wait(MessageReceivedAsync);
         }
     }
