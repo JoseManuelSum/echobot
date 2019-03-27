@@ -50,10 +50,7 @@ public class EchoDialog : IDialog<object>
             else
             {
              
-              
-             message.Text;
-                this.count++;
-                await context.PostAsync($"Hemos tomado su requerimiento, pronto nos comunicaremos con usted.");
+             await context.PostAsync($"Hemos tomado su requerimiento, pronto nos comunicaremos con usted.");
             }
             context.Wait(MessageReceivedAsync);
         }
