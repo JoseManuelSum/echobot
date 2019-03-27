@@ -41,7 +41,7 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-         If (this.count==2)
+         if (this.count==2)
          {
          this.count++;
          await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
