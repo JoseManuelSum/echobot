@@ -1,3 +1,6 @@
+#r "Microsoft.SharePoint.Client.dll"  
+#r "Microsoft.SharePoint.Client.Runtime.dll"  
+
 using System;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
