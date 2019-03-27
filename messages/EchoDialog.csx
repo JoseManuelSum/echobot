@@ -46,6 +46,7 @@ public class EchoDialog : IDialog<object>
          {
          this.count++;
              // SHAREPOINT
+                 log.Info($"el sharepoint chinga todo!!!!!");
             ClientContext contextSP = new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
 
             // Assume that the web has a list named "Announcements". 
