@@ -46,12 +46,18 @@ public class EchoDialog : IDialog<object>
          {
          this.count++;
              // SHAREPOINT
-         await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
-  
-            ClientContext contextSP = new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
-
-            // Assume that the web has a list named "Announcements". 
-            List announcementsList = contextSP.Web.Lists.GetByTitle("Prueba Clavos"); 
+         
+         AuthenticationManager authManager = new AuthenticationManager();
+         ClientContext ctx = authManager
+         .GetSharePointOnlineAuthenticatedContextTenant("https://alcsa.sharepoint.com/sites/soportealcsa",
+         "jsum@alcsa.com.gt", "alcsa1234");
+         Web web = ctx.Web;
+         ctx.Load(web);
+         ctx.ExecuteQueryRetry();
+await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+         
+            /* Assume that the web has a list named "Announcements". 
+            List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
             // We are just creating a regular list item, so we don't need to 
             // set any properties. If we wanted to create a new folder, for 
             // example, we would have to set properties such as 
@@ -62,8 +68,8 @@ public class EchoDialog : IDialog<object>
             newItem["El clavo de los clavos"] = message.Text; 
             newItem.Update(); 
 
-            contextSP.ExecuteQuery();    
-         
+            ctx.ExecuteQuery();    
+         *//
          
          //-----------------------
          
