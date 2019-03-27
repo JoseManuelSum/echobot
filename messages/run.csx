@@ -26,7 +26,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     log.Info($"Webhook was triggered!");
 
     // Initialize the azure bot
-    using (BotService.Initialize())
+     using (BotService.Initialize())
     {
         // Deserialize the incoming activity
         string jsonContent = await req.Content.ReadAsStringAsync();
@@ -56,13 +56,13 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
                         var newMembers = update.MembersAdded?.Where(t => t.Id != activity.Recipient.Id);
                         foreach (var newMember in newMembers)
                         {
-                            reply.Text = "Bienvenido, por favor ingrese su  solicitud/indicente.";
-                      //  if (!string.IsNullOrEmpty(newMember.Name))
-                      //     {
-                       //     reply.Text += $" {newMember.Name}";
-                       //     }
-                        //   reply.Text += "!";
-                          await client.Conversations.ReplyToActivityAsync(reply);
+                            reply.Text = "Welcome";
+                            if (!string.IsNullOrEmpty(newMember.Name))
+                            {
+                                reply.Text += $" {newMember.Name}";
+                            }
+                            reply.Text += "!";
+                            await client.Conversations.ReplyToActivityAsync(reply);
                         }
                     }
                     break;
