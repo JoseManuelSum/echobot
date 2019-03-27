@@ -45,7 +45,12 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
             switch (activity.GetActivityType())
             {
                 case ActivityTypes.Message:
-                      var client = new ConnectorClient(new Uri(activity.ServiceUrl));
+                  
+                 await Conversation.SendAsync(activity, () => new EchoDialog());
+                    
+                    break;
+                case ActivityTypes.ConversationUpdate:
+                     var client = new ConnectorClient(new Uri(activity.ServiceUrl));
                     IConversationUpdateActivity update = activity;
                     if (update.MembersAdded.Any())
                     {
@@ -62,12 +67,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
                             await client.Conversations.ReplyToActivityAsync(reply);
                         }
                     }
-                
-                    break;
-                case ActivityTypes.ConversationUpdate:
-                 
-                        await Conversation.SendAsync(activity, () => new EchoDialog());
-                    
+                       
                     break;
                 case ActivityTypes.ContactRelationUpdate:
                 case ActivityTypes.Typing:
