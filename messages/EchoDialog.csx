@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 using Microsoft.SharePoint.Client;
+using Microsoft.Online.SharePoint.TenantAdministration;  
+using Microsoft.Online.SharePoint.TenantManagement;
 
 
 // For more information about this template visit http://aka.ms/azurebots-csharp-basic
