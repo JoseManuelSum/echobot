@@ -51,30 +51,7 @@ public class EchoDialog : IDialog<object>
             }
             else
             {
-            //INSERTAR EN  LISTA DE CHERPOINT
-
-            //    string login = "jsum@alcsa.com.gt"; //give your username here  
-            //    string password = "alcsa1234"; //give your password  
-            //    var securePassword = new SecureString();
-              //  foreach (char c in password)
-           //     {
-            //        securePassword.AppendChar(c);
-            //    }
-//     string siteUrl = "https://alcsa.sharepoint.com/sites/soportealcsa";
-           //     ClientContext clientContext = new ClientContext(siteUrl);
-
-           //     Client.ListmyList = clientContext.Web.Lists.GetByTitle("Prueba Clavos");
-          //      ListItem CreationInformationitemInfo = newListItemCreationInformation();
-          //      ListItem myItem = myList.AddItem(itemInfo);
-          //     myItem["Title"] = "Prueba: " + this.count;
-           //     myItem["El clavo de los clavos"] = message.Text;
-
-        //        myItem.Update();
-          //      var onlineCredentials = new SharePointOnlineCredentials(login, securePassword);
-        //        clientContext.Credentials = onlineCredentials;
-          //      clientContext.ExecuteQuery();
-
-                //-------------------------------------------
+         
              this.count++;
              await context.PostAsync($"Hemos tomado su requerimiento, pronto nos comunicaremos con usted.");
             }
