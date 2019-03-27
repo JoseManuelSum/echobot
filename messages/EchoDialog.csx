@@ -69,7 +69,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
             newItem.Update(); 
 
             ctx.ExecuteQuery();    
-         *//
+         */
          
          //-----------------------
          
