@@ -47,14 +47,17 @@ public class EchoDialog : IDialog<object>
                 "no entiendo lo que dices!",
                 promptStyle: PromptStyle.Auto);
         }
-        else if (message.Text == "Reset" ) 
+        else 
         {
-            PromptDialog.Confirm(
+        if (message.Text == "Reset" ) {
+        
+        PromptDialog.Confirm(
                 context,
                 AfterResetAsync,
                 "desea ingresar otro incidente?",
                 "no entiendo lo que dices!",
                 promptStyle: PromptStyle.Auto);
+        }
         }
        
        else
