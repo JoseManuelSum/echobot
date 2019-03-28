@@ -46,7 +46,7 @@ public class EchoDialog : IDialog<object>
                 "desea ingresar otro incidente?",
                 "no entiendo lo que dices!",
                 promptStyle: PromptStyle.Auto);
-        }
+    //    }
         //else
         //{
         // if (this.count==2)
