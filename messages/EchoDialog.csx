@@ -48,13 +48,13 @@ public class EchoDialog : IDialog<object>
             promptStyle: PromptStyle.Auto);
         }
         else
-     
+    
        {
             if (this.count==1)
        {
          this.count++;
              // SHAREPOINT
-        }
+        
        } 
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
