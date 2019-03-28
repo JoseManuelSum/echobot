@@ -48,16 +48,6 @@ public class EchoDialog : IDialog<object>
                 promptStyle: PromptStyle.Auto);
         }
         else
-       
-         if (message.Text == "Reset")
-        {
-            PromptDialog.Confirm(
-                context,
-                AfterResetAsync,
-                "desea ingresar otro incidente?",
-                "no entiendo lo que dices!",
-promptStyle: PromptStyle.Auto);
-         else
         {
        
         if (this.count==1)
