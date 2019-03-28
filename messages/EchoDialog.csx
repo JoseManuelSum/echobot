@@ -43,8 +43,8 @@ public class EchoDialog : IDialog<object>
             PromptDialog.Confirm(
                 context,
                 AfterResetAsync,
-                "Are you sure you want to reset the count?",
-                "Didn't get that!",
+                "desea ingresar otro incidente?",
+                "no entiendo lo que dices!",
                 promptStyle: PromptStyle.Auto);
         }
         else
