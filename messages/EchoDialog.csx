@@ -78,7 +78,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
          
          
          
-     }
+         }
          else if (this.count > 1)
          {
          this.count++;
