@@ -15,7 +15,7 @@ using System.Security.Authentication;
 [Serializable]
 public class EchoDialog : IDialog<object>
 {
-    protected int count = 0;
+    protected int count = 1;
 
     public Task StartAsync(IDialogContext context)
     {
@@ -49,7 +49,7 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-         if (this.count==1)
+         if (this.count==2)
          {
          this.count++;
              // SHAREPOINT
