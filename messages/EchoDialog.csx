@@ -55,7 +55,7 @@ public class EchoDialog : IDialog<object>
          this.count++;
              // SHAREPOINT
         }
-        
+       } 
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
