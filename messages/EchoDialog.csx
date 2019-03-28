@@ -86,7 +86,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
     //       this.count++;
     //     await context.PostAsync($"Por favor escriba su requerimiento en un solo mensaje.");
          
-         }
+   //      }
             context.Wait(MessageReceivedAsync);
         }
     }
