@@ -79,7 +79,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
          else if (this.count > 1)
          {
          this.count++;
-         await context.PostAsync($"Si desea agregar otro incidente escriba RESET");
+         await context.PostAsync($"Si desea agregar otro incidente escriba reset");
          }
         else
       //  {
