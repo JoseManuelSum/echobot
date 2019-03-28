@@ -38,25 +38,22 @@ public class EchoDialog : IDialog<object>
     public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
     {
         var message = await argument;
-        if (message.Text == "reset" )
+        if (message.Text == "reset")
         {
             PromptDialog.Confirm(
-            context,
-            AfterResetAsync,
-            "desea ingresar otro incidente?",
-            "no entiendo lo que dices!",
-            promptStyle: PromptStyle.Auto);
+                context,
+                AfterResetAsync,
+                "desea ingresar otro incidente?",
+                "no entiendo lo que dices!",
+                promptStyle: PromptStyle.Auto);
         }
         else
-    
-       {
-            if (this.count==1)
+        {
+         if (this.count==2)
        {
          this.count++;
              // SHAREPOINT
-        
-       } 
-       
+         
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
@@ -78,22 +75,21 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
          
          
          
-         }
-         else if (this.count > 1)
+        }
+         else if (this.count > 2)
          {
          this.count++;
-         await context.PostAsync($"Si desea agregar otro incidente escriba reset");
+         await context.PostAsync($"Si desea agregar otro incidente escriba RESET");
+         }
+        else
+        {
+           this.count++;
+       await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
          }
-       // else
-       // {
-        //   this.count++;
-      // await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
-         
-      //   }
             context.Wait(MessageReceivedAsync);
         }
-    
+    }
 
     public async Task AfterResetAsync(IDialogContext context, IAwaitable<bool> argument)
     {
