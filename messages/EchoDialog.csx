@@ -38,36 +38,34 @@ public class EchoDialog : IDialog<object>
     public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
     {
         var message = await argument;
-        if (message.Text == "reset" ) 
-        {
+        if (message.Text == "reset" ){
             PromptDialog.Confirm(
-                context,
-                AfterResetAsync,
-                "desea ingresar otro incidente?",
-                "no entiendo lo que dices!",
-                promptStyle: PromptStyle.Auto);
+            context,
+            AfterResetAsync,
+            "desea ingresar otro incidente?",
+            "no entiendo lo que dices!",
+            promptStyle: PromptStyle.Auto);
         }
-        else 
-        {
-        if (message.Text == "Reset" ) {
+        else{
+            if (message.Text == "Reset" ) {
         
-        PromptDialog.Confirm(
+                PromptDialog.Confirm(
                 context,
                 AfterResetAsync,
                 "desea ingresar otro incidente?",
                 "no entiendo lo que dices!",
                 promptStyle: PromptStyle.Auto);
-        }
+            }
         }
        
        else
-        {
-       
-        if (this.count==1)
+       {
+            if (this.count==1)
        {
          this.count++;
              // SHAREPOINT
-         
+        }
+        }
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
