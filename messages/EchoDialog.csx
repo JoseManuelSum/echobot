@@ -56,7 +56,7 @@ public class EchoDialog : IDialog<object>
              // SHAREPOINT
         
        } 
-       }
+       
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
@@ -93,7 +93,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
       //   }
             context.Wait(MessageReceivedAsync);
         }
-    }
+    
 
     public async Task AfterResetAsync(IDialogContext context, IAwaitable<bool> argument)
     {
