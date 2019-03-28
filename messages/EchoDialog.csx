@@ -49,13 +49,13 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-         if (this.count==2)
-         {
-         this.count++;
+         //if (this.count==2)
+   //      {
+        // this.count++;
              // SHAREPOINT
          
      
-await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+//await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
          //   ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
            // List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
@@ -75,7 +75,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
          
          
          
-         }
+       //  }
          else if (this.count > 2)
          {
          this.count++;
@@ -84,7 +84,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
         else
         {
            this.count++;
-       await context.PostAsync($"Por favor escriba su requerimiento en un solo mensaje.");
+       await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
          }
             context.Wait(MessageReceivedAsync);
