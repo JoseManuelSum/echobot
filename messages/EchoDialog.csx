@@ -15,7 +15,7 @@ using System.Security.Authentication;
 [Serializable]
 public class EchoDialog : IDialog<object>
 {
-    protected int count = 1;
+    protected int count = 0;
 
     public Task StartAsync(IDialogContext context)
     {
