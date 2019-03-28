@@ -47,15 +47,15 @@ public class EchoDialog : IDialog<object>
                 "no entiendo lo que dices!",
                 promptStyle: PromptStyle.Auto);
         }
-       // else
-    //    {
-         //if (this.count==2)
-   //      {
-        // this.count++;
+        else
+        {
+         if (this.count==2)
+       {
+         this.count++;
              // SHAREPOINT
          
      
-//await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
          //   ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
            // List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
@@ -75,7 +75,7 @@ public class EchoDialog : IDialog<object>
          
          
          
-       //  }
+        }
          else if (this.count > 2)
          {
          this.count++;
