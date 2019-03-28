@@ -48,7 +48,7 @@ public class EchoDialog : IDialog<object>
                 promptStyle: PromptStyle.Auto);
         }
         else
-        {
+    //    {
          //if (this.count==2)
    //      {
         // this.count++;
