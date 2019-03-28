@@ -49,7 +49,7 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-         if (this.count==2)
+         if (this.count==1)
        {
          this.count++;
              // SHAREPOINT
@@ -76,17 +76,17 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
          
          
         }
-         else if (this.count > 2)
+         else if (this.count > 1)
          {
          this.count++;
          await context.PostAsync($"Si desea agregar otro incidente escriba RESET");
          }
         else
-        {
-           this.count++;
-       await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+      //  {
+     //      this.count++;
+   //    await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
-         }
+      //   }
             context.Wait(MessageReceivedAsync);
         }
     }
