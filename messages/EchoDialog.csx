@@ -97,11 +97,11 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
         if (confirm)
         {
             this.count = 1;
-            await context.PostAsync("Reset count.");
+            await context.PostAsync("Puede crear una nueva solicitud");
         }
         else
         {
-            await context.PostAsync("Did not reset count.");
+            await context.PostAsync("No se realizo el reinicio");
         }
         context.Wait(MessageReceivedAsync);
     }
