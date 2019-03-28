@@ -38,7 +38,7 @@ public class EchoDialog : IDialog<object>
     public virtual async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
     {
         var message = await argument;
-        if (message.Text == "reset" ) | ( message.Text=="Reset")
+        if (message.Text == "reset" ) 
         {
             PromptDialog.Confirm(
                 context,
@@ -47,7 +47,17 @@ public class EchoDialog : IDialog<object>
                 "no entiendo lo que dices!",
                 promptStyle: PromptStyle.Auto);
         }
-        else
+        else if (message.Text == "Reset" ) 
+        {
+            PromptDialog.Confirm(
+                context,
+                AfterResetAsync,
+                "desea ingresar otro incidente?",
+                "no entiendo lo que dices!",
+                promptStyle: PromptStyle.Auto);
+        }
+       
+       else
         {
        
         if (this.count==1)
