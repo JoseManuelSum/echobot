@@ -49,7 +49,7 @@ public class EchoDialog : IDialog<object>
         }
         else
         {
-         if (this.count==2)
+         if (this.count==1)
          {
          this.count++;
              // SHAREPOINT
