@@ -56,6 +56,7 @@ public class EchoDialog : IDialog<object>
              // SHAREPOINT
         
        } 
+       }
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
@@ -82,7 +83,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
          {
          this.count++;
          await context.PostAsync($"Si desea agregar otro incidente escriba reset");
-         }
+         
          }
        // else
        // {
