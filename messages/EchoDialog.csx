@@ -8,7 +8,7 @@ using Microsoft.Bot.Connector;
 using Microsoft.SharePoint.Client;
 using Microsoft.Online.SharePoint.TenantAdministration;  
 using Microsoft.Online.SharePoint.TenantManagement;
-using OfficeDevPnP.Core;  
+
 using System.Security.Authentication;
 
 // For more information about this template visit http://aka.ms/azurebots-csharp-basic
@@ -56,31 +56,19 @@ public class EchoDialog : IDialog<object>
          
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
-
-     {    
-
-         AuthenticationManager authManager = new AuthenticationManager();
-         ClientContext ctx = authManager
-         .GetSharePointOnlineAuthenticatedContextTenant("https://alcsa.sharepoint.com/sites/soportealcsa/",
-         "jsum@alcsa.com.gt", "alcsa1234");
-         Web web = ctx.Web;
-         ctx.Load(web);
-         ctx.ExecuteQueryRetry();
-         log.Info(web.Title);
-
-         }
+         
            ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
-           // List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
+            List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
             // We are just creating a regular list item, so we don't need to 
            //  set any properties. If we wanted to create a new folder, for 
            //  example, we would have to set properties such as 
-           UnderlyingObjectType to FileSystemObjectType.Folder. 
-           ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
+         //    UnderlyingObjectType to FileSystemObjectType.Folder. 
+          ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
            ListItem newItem = announcementsList.AddItem(itemCreateInfo); 
            newItem["Title"] = "My New Item"; 
-           newItem["El clavo de los clavos"] = "hola" ; 
+           newItem["El clavo de los clavos"] = "hola" ; /*message.Text;*/ 
            newItem.Update(); 
-          ctx.ExecuteQuery();    
+           ctx.ExecuteQuery();    
         
          
          //-----------------------
