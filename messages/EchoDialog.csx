@@ -8,7 +8,7 @@ using Microsoft.Bot.Connector;
 using Microsoft.SharePoint.Client;
 using Microsoft.Online.SharePoint.TenantAdministration;  
 using Microsoft.Online.SharePoint.TenantManagement;
-
+using OfficeDevPnP.Core;  
 using System.Security.Authentication;
 
 // For more information about this template visit http://aka.ms/azurebots-csharp-basic
