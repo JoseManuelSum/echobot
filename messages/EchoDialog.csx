@@ -66,7 +66,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
           ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
            ListItem newItem = announcementsList.AddItem(itemCreateInfo); 
            newItem["Title"] = "My New Item"; 
-           newItem["El clavo de los clavos"] = "hola" ; /*message.Text; 
+           newItem["El clavo de los clavos"] = "hola" ; /*message.Text;*/ 
            newItem.Update(); 
            ctx.ExecuteQuery();    
         
