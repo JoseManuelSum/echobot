@@ -57,31 +57,31 @@ public class EchoDialog : IDialog<object>
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
 
-//region Connexion to SharePoint
-string WebUrl = "https://alcsa.sharepoint.com/sites/soportealcsa";
-string login = "jsum@onmicrosoft.com";
-string password = "alcsa1234";
-var securePassword = new SecureString();
-foreach (char c in password)
-    {securePassword.AppendChar(c);}
-var onlineCredentials = new SharePointOnlineCredentials(login, securePassword);
-//endregion
+         public static void Run(TimerInfo myTimer, TraceWriter log)  
+{
+         AuthenticationManager authManager = new AuthenticationManager();
+         ClientContext ctx = authManager
+         .GetSharePointOnlineAuthenticatedContextTenant("https://alcsa.sharepoint.com/sites/soportealcsa/",
+         "jsum@alcsa.com.gt", "alcsa1234");
+         Web web = ctx.Web;
+         ctx.Load(web);
+         ctx.ExecuteQueryRetry();
+         log.Info(web.Title);
+}
          
-    using (ClientContext ctx= new ClientContext(Weburl)); 
-    {
-    CContext.Credentials = onlineCredentials;
-            List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
+           ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
+           // List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
             // We are just creating a regular list item, so we don't need to 
            //  set any properties. If we wanted to create a new folder, for 
            //  example, we would have to set properties such as 
-         //    UnderlyingObjectType to FileSystemObjectType.Folder. 
-          ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
+           UnderlyingObjectType to FileSystemObjectType.Folder. 
+           ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
            ListItem newItem = announcementsList.AddItem(itemCreateInfo); 
            newItem["Title"] = "My New Item"; 
-           newItem["El clavo de los clavos"] = "hola" ; /*message.Text;*/ 
+           newItem["El clavo de los clavos"] = "hola" ; 
            newItem.Update(); 
-           ctx.ExecuteQuery();    
-        }
+          ctx.ExecuteQuery();    
+        
          
          //-----------------------
          
