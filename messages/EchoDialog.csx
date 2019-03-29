@@ -57,8 +57,8 @@ public class EchoDialog : IDialog<object>
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
 
-         public static void Run(TimerInfo myTimer, TraceWriter log)  
-{
+         
+
          AuthenticationManager authManager = new AuthenticationManager();
          ClientContext ctx = authManager
          .GetSharePointOnlineAuthenticatedContextTenant("https://alcsa.sharepoint.com/sites/soportealcsa/",
@@ -67,7 +67,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
          ctx.Load(web);
          ctx.ExecuteQueryRetry();
          log.Info(web.Title);
-}
+
          
            ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
            // List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
