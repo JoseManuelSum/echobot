@@ -57,7 +57,7 @@ public class EchoDialog : IDialog<object>
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
 
-         
+     {    
 
          AuthenticationManager authManager = new AuthenticationManager();
          ClientContext ctx = authManager
@@ -68,7 +68,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
          ctx.ExecuteQueryRetry();
          log.Info(web.Title);
 
-         
+         }
            ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
            // List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
             // We are just creating a regular list item, so we don't need to 
