@@ -58,9 +58,10 @@ public class EchoDialog : IDialog<object>
          
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
-TextWriter Escribe = new StreamWriter("https://soportealcsa9a89.file.core.windows.net/persona/prueba/EscribeProblema.txt");
 
-            Escribe.WriteLine(message.Text);
+//TextWriter Escribe = new StreamWriter("https://soportealcsa9a89.file.core.windows.net/persona/prueba/EscribeProblema.txt");
+
+  //          Escribe.WriteLine(message.Text);
 
             /*Escribe.Close();
 
