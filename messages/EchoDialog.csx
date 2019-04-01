@@ -58,7 +58,27 @@ public class EchoDialog : IDialog<object>
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
             ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com//sites///soportealcsa"); 
-            List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos"); 
+            List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos");
+         //---------------------------------   
+           {
+           SecureString passWord = new SecureString();
+
+    foreach (char c in "alcsa1234".ToCharArray()) passWord.AppendChar(c);
+
+    clientContext.Credentials = new SharePointOnlineCredentials("jsum@alcsa.onmicrosoft.com", passWord);
+
+    Web web = clientContext.Web;
+
+    clientContext.Load(web);
+
+    clientContext.ExecuteQuery();
+
+    Console.WriteLine(web.Title);
+
+    Console.ReadLine();
+    }
+    
+            //---------------------
             // We are just creating a regular list item, so we don't need to 
            //  set any properties. If we wanted to create a new folder, for 
            //  example, we would have to set properties such as 
