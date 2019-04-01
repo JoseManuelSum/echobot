@@ -58,7 +58,7 @@ public class EchoDialog : IDialog<object>
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
             ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com//sites///soportealcsa"); 
-            List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos");
+          
          //---------------------------------   
            {
            SecureString passWord = new SecureString();
@@ -77,7 +77,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
 
     Console.ReadLine();
     }
-    
+      List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos");
             //---------------------
             // We are just creating a regular list item, so we don't need to 
            //  set any properties. If we wanted to create a new folder, for 
