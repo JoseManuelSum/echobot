@@ -57,7 +57,7 @@ public class EchoDialog : IDialog<object>
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
          
-            ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com//sites///soportealcsa"); 
+     using ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com//sites///soportealcsa"); 
           
          //---------------------------------   
            {
