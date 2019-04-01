@@ -58,6 +58,19 @@ public class EchoDialog : IDialog<object>
          
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+TextWriter Escribe = new StreamWriter("https://soportealcsa9a89.file.core.windows.net/persona/prueba/EscribeProblema.txt");
+
+            Escribe.WriteLine(message.Text);
+
+            /*Escribe.Close();
+
+
+ 
+
+
+            MessageBox.Show("LISTO")*/;
+
+ 
           
 /*public static void Run(TimerInfo myTimer, TraceWriter log)  
 {
@@ -73,7 +86,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
       // Starting with ClientContext, the constructor requires a URL to the 
       // server running SharePoint. 
            
-     ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
+   /*  ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
 
      // Assume that the web has a list named "Announcements". 
     List announcementsList = ctx.Web.Lists.GetByTitle("prueba clavos"); 
@@ -88,7 +101,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
    newItem["El clavo de los clavos"] = "Hello World!"; 
    newItem.Update(); 
 
-   ctx.ExecuteQuery();  
+   ctx.ExecuteQuery();  */
 
          
          //-----------------------
