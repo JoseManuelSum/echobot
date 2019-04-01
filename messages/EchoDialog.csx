@@ -8,6 +8,7 @@ using Microsoft.Bot.Connector;
 using Microsoft.SharePoint.Client;
 using Microsoft.Online.SharePoint.TenantAdministration;  
 using Microsoft.Online.SharePoint.TenantManagement;
+using OfficeDevPnP.Core;  
 
 using System.Security.Authentication;
 
@@ -56,6 +57,16 @@ public class EchoDialog : IDialog<object>
          
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+public static void Run(TimerInfo myTimer, TraceWriter log)  
+{
+         AuthenticationManager authManager = new AuthenticationManager();
+         ClientContext ctx = authManager
+         .GetSharePointOnlineAuthenticatedContextTenant("https://alcsa.sharepoint.com/sites/soportealcsa/Lists/Prueba Clavos/",
+         "jsum@alcsa.com.gt", "alcsa1234");
+         Web web = ctx.Web;
+         ctx.Load(web);
+         ctx.ExecuteQueryRetry();
+     
    
       // Starting with ClientContext, the constructor requires a URL to the 
       // server running SharePoint. 
