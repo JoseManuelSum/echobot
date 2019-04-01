@@ -77,7 +77,8 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
 
     Console.ReadLine();
     }
-      List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos");
+    //-------
+   //   List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos");
             //---------------------
             // We are just creating a regular list item, so we don't need to 
            //  set any properties. If we wanted to create a new folder, for 
