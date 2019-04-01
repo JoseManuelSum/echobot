@@ -56,33 +56,27 @@ public class EchoDialog : IDialog<object>
          
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
-         
-    // ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com//sites///soportealcsa"); 
-          
-         //---------------------------------   
-          //INSERTAR EN  LISTA DE CHERPOINT
+   
+      // Starting with ClientContext, the constructor requires a URL to the 
+      // server running SharePoint. 
+           
+     ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com//sites///soportealcsa"); 
 
-           //     string login = "jsum@alcsa.com.gt"; //give your username here  
-          //      string password = "alcsa1234"; //give your password  
-          //      var securePassword = new SecureString();
-         //       foreach (char c in password)
-         //       {
-         //           securePassword.AppendChar(c);
-         //       }
-//
-         //       string siteUrl = "https://alcsa.sharepoint.com/sites/soportealcsa";
-          //      ClientContext clientContext = new ClientContext(siteUrl);
+     // Assume that the web has a list named "Announcements". 
+    List announcementsList = context.Web.Lists.GetByTitle("prueba clavos"); 
 
-         //       Client.ListmyList = clientContext.Web.Lists.GetByTitle("Prueba Clavos");
-         //       ListItem CreationInformationitemInfo = newListItemCreationInformation();
-        //        ListItem myItem = myList.AddItem(itemInfo);
-         //       myItem["Title"] = "Prueba: " + this.count;
-         //       myItem["El clavo de los clavos"] = message.Text;
-//
-         //       myItem.Update();
-        //        var onlineCredentials = new SharePointOnlineCredentials(login, securePassword);
-        //        clientContext.Credentials = onlineCredentials;
-         //       clientContext.ExecuteQuery();
+   // We are just creating a regular list item, so we don't need to 
+   // set any properties. If we wanted to create a new folder, for 
+   // example, we would have to set properties such as 
+   // UnderlyingObjectType to FileSystemObjectType.Folder. 
+   ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
+   ListItem newItem = announcementsList.AddItem(itemCreateInfo); 
+   newItem["Title"] = "My New Item!"; 
+   newItem["Body"] = "Hello World!"; 
+   newItem.Update(); 
+
+   context.ExecuteQuery();  
+
          
          //-----------------------
          
