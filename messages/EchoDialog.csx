@@ -60,37 +60,29 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
      using ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com//sites///soportealcsa"); 
           
          //---------------------------------   
-           {
-           SecureString passWord = new SecureString();
+          //INSERTAR EN  LISTA DE CHERPOINT
 
-    foreach (char c in "alcsa1234".ToCharArray()) passWord.AppendChar(c);
+                string login = "jsum@alcsa.com.gt"; //give your username here  
+                string password = "alcsa1234"; //give your password  
+                var securePassword = new SecureString();
+                foreach (char c in password)
+                {
+                    securePassword.AppendChar(c);
+                }
 
-    clientContext.Credentials = new SharePointOnlineCredentials("jsum@alcsa.onmicrosoft.com", passWord);
+                string siteUrl = "https://alcsa.sharepoint.com/sites/soportealcsa";
+                ClientContext clientContext = new ClientContext(siteUrl);
 
-    Web web = clientContext.Web;
+                Client.ListmyList = clientContext.Web.Lists.GetByTitle("Prueba Clavos");
+                ListItem CreationInformationitemInfo = newListItemCreationInformation();
+                ListItem myItem = myList.AddItem(itemInfo);
+                myItem["Title"] = "Prueba: " + this.count;
+                myItem["El clavo de los clavos"] = message.Text;
 
-    clientContext.Load(web);
-
-    clientContext.ExecuteQuery();
-
-    Console.WriteLine(web.Title);
-
-    Console.ReadLine();
-    }
-    //-------
-   //   List announcementsList = ctx.Web.Lists.GetByTitle("Prueba Clavos");
-            //---------------------
-            // We are just creating a regular list item, so we don't need to 
-           //  set any properties. If we wanted to create a new folder, for 
-           //  example, we would have to set properties such as 
-          // UnderlyingObjectType to FileSystemObjectType.Folder. 
-           ListItemCreationInformation itemCreateInfo = new ListItemCreationInformation(); 
-           ListItem newItem = announcementsList.AddItem(itemCreateInfo); 
-           newItem["Title"] = "My New Item"; 
-           newItem["El clavo de los clavos"] = "hola" ; /*message.Text;*/ 
-           newItem.Update(); 
-           ctx.ExecuteQuery();    
-        
+                myItem.Update();
+                var onlineCredentials = new SharePointOnlineCredentials(login, securePassword);
+                clientContext.Credentials = onlineCredentials;
+                clientContext.ExecuteQuery();
          
          //-----------------------
          
