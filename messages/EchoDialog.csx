@@ -9,6 +9,7 @@ using Microsoft.SharePoint.Client;
 using Microsoft.Online.SharePoint.TenantAdministration;  
 using Microsoft.Online.SharePoint.TenantManagement;
 using OfficeDevPnP.Core;  
+using System.IO;
 
 using System.Security.Authentication;
 
@@ -57,6 +58,12 @@ public class EchoDialog : IDialog<object>
          
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
+           TextWriter Escribe = new StreamWriter("test.txt");
+
+            Escribe.WriteLine(message.Text);
+
+            Escribe.Close();
+            MessageBox.Show("LISTO");
 /*public static void Run(TimerInfo myTimer, TraceWriter log)  
 {
          AuthenticationManager authManager = new AuthenticationManager();
