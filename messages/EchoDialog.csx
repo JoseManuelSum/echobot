@@ -57,7 +57,7 @@ public class EchoDialog : IDialog<object>
          
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
-public static void Run(TimerInfo myTimer, TraceWriter log)  
+/*public static void Run(TimerInfo myTimer, TraceWriter log)  
 {
          AuthenticationManager authManager = new AuthenticationManager();
          ClientContext ctx = authManager
@@ -65,13 +65,13 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
          "jsum@alcsa.com.gt", "alcsa1234");
          Web web = ctx.Web;
          ctx.Load(web);
-         ctx.ExecuteQueryRetry();
+         ctx.ExecuteQueryRetry();*/
      
    
       // Starting with ClientContext, the constructor requires a URL to the 
       // server running SharePoint. 
            
-    /* ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
+     ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
 
      // Assume that the web has a list named "Announcements". 
     List announcementsList = ctx.Web.Lists.GetByTitle("prueba clavos"); 
@@ -86,7 +86,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
    newItem["El clavo de los clavos"] = "Hello World!"; 
    newItem.Update(); 
 
-   ctx.ExecuteQuery();  */
+   ctx.ExecuteQuery();  
 
          
          //-----------------------
