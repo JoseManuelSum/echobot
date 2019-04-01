@@ -58,12 +58,7 @@ public class EchoDialog : IDialog<object>
          
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
-           TextWriter Escribe = new StreamWriter("test.txt");
-
-            Escribe.WriteLine(message.Text);
-
-            Escribe.Close();
-            MessageBox.Show("LISTO");
+          
 /*public static void Run(TimerInfo myTimer, TraceWriter log)  
 {
          AuthenticationManager authManager = new AuthenticationManager();
