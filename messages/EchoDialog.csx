@@ -63,7 +63,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
      ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com//sites///soportealcsa"); 
 
      // Assume that the web has a list named "Announcements". 
-    List announcementsList = context.Web.Lists.GetByTitle("prueba clavos"); 
+    List announcementsList = ctx.Web.Lists.GetByTitle("prueba clavos"); 
 
    // We are just creating a regular list item, so we don't need to 
    // set any properties. If we wanted to create a new folder, for 
