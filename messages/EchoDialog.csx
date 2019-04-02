@@ -59,35 +59,12 @@ public class EchoDialog : IDialog<object>
      
 await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto nos comunicaremos con  usted.");
 
-//TextWriter Escribe = new StreamWriter("Z: \\soportealcsa9a89.file.core.windows.net\persona /u:AZURE\soportealcsa9a89 RLFZxen4OUXEfZ04s6e3TeK1Ei7cT/QgFRBaVujlECj6ExTagUUvtkiXEBJi/32TDGwXFaWkB+VSk0Gt0mchbQ==");
-
-//            Escribe.WriteLine(message.Text);
-
-            /*Escribe.Close();
 
 
- 
-
-
-            MessageBox.Show("LISTO")*/;
-
- 
-          
-/*public static void Run(TimerInfo myTimer, TraceWriter log)  
-{
-         AuthenticationManager authManager = new AuthenticationManager();
-         ClientContext ctx = authManager
-         .GetSharePointOnlineAuthenticatedContextTenant("https://alcsa.sharepoint.com/sites/soportealcsa/Lists/Prueba Clavos/",
-         "jsum@alcsa.com.gt", "alcsa1234");
-         Web web = ctx.Web;
-         ctx.Load(web);
-         ctx.ExecuteQueryRetry();*/
-     
-   
       // Starting with ClientContext, the constructor requires a URL to the 
       // server running SharePoint. 
            
-   /*  ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
+ ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
 
      // Assume that the web has a list named "Announcements". 
     List announcementsList = ctx.Web.Lists.GetByTitle("prueba clavos"); 
@@ -102,7 +79,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
    newItem["El clavo de los clavos"] = "Hello World!"; 
    newItem.Update(); 
 
-   ctx.ExecuteQuery();  */
+   ctx.ExecuteQuery();  
 
          
          //-----------------------
