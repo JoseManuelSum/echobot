@@ -64,7 +64,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
       // Starting with ClientContext, the constructor requires a URL to the 
       // server running SharePoint. 
            
- ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
+/* ClientContext ctx= new ClientContext("https://alcsa.sharepoint.com/sites/soportealcsa"); 
 
      // Assume that the web has a list named "Announcements". 
     List announcementsList = ctx.Web.Lists.GetByTitle("prueba clavos"); 
@@ -79,7 +79,7 @@ await context.PostAsync($"Su mensaje: {message.Text}, ha sido trasladado, pronto
    newItem["El clavo de los clavos"] = (message.Text); 
    newItem.Update(); 
 
-   ctx.ExecuteQuery();  
+   ctx.ExecuteQuery();  */
 
          
          //-----------------------
